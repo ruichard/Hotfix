@@ -1,4 +1,4 @@
-# Hotfix
+# ZeroBug
 The ZeroBug tool can dynamically fix online bugs for Android.
 ## Getting started
 Add hotfix-gradle-plugin as a dependency in your main `build.gradle` in the root of your project:
