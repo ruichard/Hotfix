@@ -1,5 +1,5 @@
 # Hotfix
-The Hotfix can dynamically fix online bugs for Android without republishing an app.
+The ZeroBug tool can dynamically fix online bugs for Android.
 ## Getting started
 Add hotfix-gradle-plugin as a dependency in your main `build.gradle` in the root of your project:
 
@@ -63,42 +63,42 @@ For proguard, we have already made the proguard config automatic, and hotfix wil
 
 For more hotfix configurations, learn more at the sample [app/build.gradle].
 
-## Ark Support
-How to run hotfix on the Ark?
+## ZeroKit Support
+How to run hotfix on the ZeroKit?
 ### building patch
 Just use the following command:
 ```buildconfig
 bash build_patch_dexdiff.sh old=xxx new=xxx
 ```
-* `old` indicates the absolute path of android apk(not compiled by Ark) with bugs
-* `new` indicates the absolute path of android apk(not compiled by Ark) with fixing
+* `old` indicates the absolute path of android apk(not compiled by ZeroKit) with bugs
+* `new` indicates the absolute path of android apk(not compiled by ZeroKit) with fixing
 
 The patch file is packaged in APK.
-### compiling in Ark
+### compiling in ZeroKit
 TODO
 
-At present it's compiled by Ark compiler team. The output patch is still packaged in APK format without signature.
+At present it's compiled by ZeroKit compiler team. The output patch is still packaged in APK format without signature.
 ### packaging the patch
 For hotfix-cli, add the following lines to your `hotfix_config.xml`. Otherwise, the default configure will be used.
 ```xml
-<issue id="arkHot">
-   <path value="arkHot"/>         // path of patch
+<issue id="ZeroKitHot">
+   <path value="ZeroKitHot"/>         // path of patch
    <name value="patch.apk"/>      // name of patch
 </issue>
 ```
 For gradle, add the following lines to your `app/build.gradle`. Otherwise, the default configure will be used.
 ```gradle
-ark {
-   path = "arkHot"         // path of patch
+ZeroKit {
+   path = "ZeroKitHot"         // path of patch
    name = "patch.apk"      // name of patch
 }
 ```
-The patch is compiled by Ark and placed on the above path. all subsequent operations are same as hotfix-cli or gradle.
+The patch is compiled by ZeroKit and placed on the above path. all subsequent operations are same as hotfix-cli or gradle.
 
 The ultimated patch APK consists of two patch files:
 
 * `classes.dex` for android
-* `patch.apk` with so for Ark.
+* `patch.apk` with so for ZeroKit.
 
 ## hotfix Known Issues
 There are some issues which hotfix can't dynamic update.
